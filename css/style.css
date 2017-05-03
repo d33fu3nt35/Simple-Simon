@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400");
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
+.text-js {
+    opacity: 0;
+}
+
+.cursor {
+    display: block;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: -5px;
+    width: 2px;
+    /* Change colour of Cursor Here */
+    background-color: #000000;
+    z-index: 1;
+    -webkit-animation: flash 0.4s none infinite alternate;
+    animation: flash 0.4s none infinite alternate;
+}
+
+@-webkit-keyframes flash {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes flash {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    boz-sizing: border-box;
+    font-family: 'Varela Round', sans-serif;
+}
+
+body {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fed75a+64,fed75a+64,f2ae10+95 */
+    background: rgb(254, 215, 90); /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover, rgba(254, 215, 90, 1) 64%, rgba(254, 215, 90, 1) 64%, rgba(242, 174, 16, 1) 95%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(254, 215, 90, 1) 64%, rgba(254, 215, 90, 1) 64%, rgba(242, 174, 16, 1) 95%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center, rgba(254, 215, 90, 1) 64%, rgba(254, 215, 90, 1) 64%, rgba(242, 174, 16, 1) 95%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fed75a', endColorstr='#f2ae10', GradientType=1); /* IE6-9 fallback on horizontal gradient */
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.headline {
+    margin: 20px;
+    color: #000000;
+    font-size: 32px;
+    text-align: center;
+}
+
+.headline h1 {
+    letter-spacing: 1.6px;
+    font-weight: 300;
+    text-shadow: 0px 5px 3px rgba(0, 0, 0, 0.5);
+}
+
+#continue {
+    margin: 20px;
+    color: #000000;
+    font-size: 32px;
+    text-align: center;
+    position: absolute;
+    margin-top: 90px;
+}
+
+#continue a {
+    letter-spacing: 1.6px;
+    font-weight: 300;
+    text-decoration: none;
+    color: #000000;
+    transition: ease 0.8s;
+}
+
+#continue a:hover {
+    color: #ffffff;
+    text-shadow: 0px 5px 3px rgba(0, 0, 0, 0.5);
+    transition: ease 0.8s;
+}
+
+#continue {
+    display: inline-block;
+    padding-bottom: 3px;
+}
+
+#continue:after {
+    content: '';
+    display: block;
+    margin: auto;
+    margin-top: 3px;
+    height: 3px;
+    width: 0px;
+    background: transparent;
+    transition: width .8s ease, background-color .8s ease;
+}
+
+#continue:hover:after {
+    width: 100%;
+    background: #ffffff;
+}
+
+.rubberBand:hover {
+    animation: rubberBand;
+    -webkit-animation-name: rubberBand;
+    animation-name: rubberBand;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+@-webkit-keyframes rubberBand {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    30% {
+        -webkit-transform: scale3d(1.25, 0.75, 1);
+        transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+        -webkit-transform: scale3d(0.75, 1.25, 1);
+        transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+        -webkit-transform: scale3d(1.15, 0.85, 1);
+        transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+        -webkit-transform: scale3d(.95, 1.05, 1);
+        transform: scale3d(.95, 1.05, 1);
+    }
+    75% {
+        -webkit-transform: scale3d(1.05, .95, 1);
+        transform: scale3d(1.05, .95, 1);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+@keyframes rubberBand {
+    0% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    30% {
+        -webkit-transform: scale3d(1.25, 0.75, 1);
+        transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+        -webkit-transform: scale3d(0.75, 1.25, 1);
+        transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+        -webkit-transform: scale3d(1.15, 0.85, 1);
+        transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+        -webkit-transform: scale3d(.95, 1.05, 1);
+        transform: scale3d(.95, 1.05, 1);
+    }
+    75% {
+        -webkit-transform: scale3d(1.05, .95, 1);
+        transform: scale3d(1.05, .95, 1);
+    }
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+

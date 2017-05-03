@@ -2,10 +2,14 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Simple Simon</title>
+    <title>Simple Simon | HOME</title>
     <!-- bootstrap CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!--CDN links for TweenLite, CSSPlugin, and EasePack-->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/CSSPlugin.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/easing/EasePack.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenLite.min.js"></script>
 
     <!-- Internal CSS -->
     <style>
@@ -16,11 +20,11 @@
             font-family: 'Varela Round', sans-serif;
             text-align: center;
             /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fed75a+64,fed75a+64,f2ae10+95 */
-            background: rgb(254,215,90); /* Old browsers */
-            background: -moz-radial-gradient(center, ellipse cover,  rgba(254,215,90,1) 64%, rgba(254,215,90,1) 64%, rgba(242,174,16,1) 95%); /* FF3.6-15 */
-            background: -webkit-radial-gradient(center, ellipse cover,  rgba(254,215,90,1) 64%,rgba(254,215,90,1) 64%,rgba(242,174,16,1) 95%); /* Chrome10-25,Safari5.1-6 */
-            background: radial-gradient(ellipse at center,  rgba(254,215,90,1) 64%,rgba(254,215,90,1) 64%,rgba(242,174,16,1) 95%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fed75a', endColorstr='#f2ae10',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+            background: rgb(254, 215, 90); /* Old browsers */
+            background: -moz-radial-gradient(center, ellipse cover, rgba(254, 215, 90, 1) 64%, rgba(254, 215, 90, 1) 64%, rgba(242, 174, 16, 1) 95%); /* FF3.6-15 */
+            background: -webkit-radial-gradient(center, ellipse cover, rgba(254, 215, 90, 1) 64%, rgba(254, 215, 90, 1) 64%, rgba(242, 174, 16, 1) 95%); /* Chrome10-25,Safari5.1-6 */
+            background: radial-gradient(ellipse at center, rgba(254, 215, 90, 1) 64%, rgba(254, 215, 90, 1) 64%, rgba(242, 174, 16, 1) 95%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fed75a', endColorstr='#f2ae10', GradientType=1); /* IE6-9 fallback on horizontal gradient */
 
             background-size: cover;
             background-repeat: no-repeat;
@@ -62,11 +66,11 @@
         }
 
         #bottomLeft {
-            background-color: #5eca4c;
+            background-color: #4aff29;
         }
 
         #bottomRight {
-            background-color: #ffe44c;
+            background-color: #ff6a00;
 
         }
 
@@ -105,6 +109,8 @@
 
         #SimonHeader {
             margin-top: 26px;
+            font-family: 'Varela Round', sans-serif;
+            letter-spacing: 1.6px;
         }
 
         .HeaderPiece {
@@ -112,7 +118,8 @@
         }
 
         #S {
-          transition: 2s ease;
+            font-size: 50px;
+            transition: 2s ease;
         }
 
         #S:hover {
@@ -121,6 +128,7 @@
         }
 
         #I {
+            font-size: 50px;
             transition: 2s ease;
         }
 
@@ -130,6 +138,7 @@
         }
 
         #M {
+            font-size: 50px;
             transition: 2s ease;
         }
 
@@ -139,15 +148,17 @@
         }
 
         #P {
+            font-size: 50px;
             transition: 2s ease;
         }
 
         #P:hover {
-            color: #ffe44c;
+            color: #ff6a00;
             transition: 0.1s ease;
         }
 
         #L {
+            font-size: 50px;
             transition: 2s ease;
         }
 
@@ -157,6 +168,7 @@
         }
 
         #E {
+            font-size: 50px;
             transition: 2s ease;
         }
 
@@ -166,6 +178,7 @@
         }
 
         #O {
+            font-size: 50px;
             transition: 2s ease;
         }
 
@@ -175,11 +188,12 @@
         }
 
         #N {
+            font-size: 50px;
             transition: 2s ease;
         }
 
         #N:hover {
-            color: #ffe44c;
+            color: #ff6a00;
             transition: 0.1s ease;
         }
 
@@ -277,7 +291,8 @@
             animateBox('#bottomLeft');
         } else if (sequence[i] == 'bottomRight') {
             animateBox('#bottomRight');
-        };
+        }
+        ;
     }
 
     // pic a random box and add it to sequence array
@@ -296,7 +311,8 @@
             case (number >= 0.75):
                 sequence.push('bottomRight');
                 break;
-        };
+        }
+        ;
     };
 
     // listen for user click on box, compare to corresponding sequence aray element
