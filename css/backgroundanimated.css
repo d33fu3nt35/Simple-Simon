@@ -1,0 +1,54 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.large-header {
+    position: relative;
+    width: 100%;
+    background: #333;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+    z-index: 1;
+}
+
+#large-header {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fed75a+64,fed75a+64,f2ae10+95 */
+    background: rgb(254,215,90); /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover,  rgba(254,215,90,1) 64%, rgba(254,215,90,1) 64%, rgba(242,174,16,1) 95%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover,  rgba(254,215,90,1) 64%,rgba(254,215,90,1) 64%,rgba(242,174,16,1) 95%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center,  rgba(254,215,90,1) 64%,rgba(254,215,90,1) 64%,rgba(242,174,16,1) 95%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fed75a', endColorstr='#f2ae10',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.main-title {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    color: #f9f1e9;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%,-50%,0);
+    transform: translate3d(-50%,-50%,0);
+}
+
+.demo-1 .main-title {
+    text-transform: uppercase;
+    font-size: 4.2em;
+    letter-spacing: 0.1em;
+}
+
+.main-title .thin {
+    font-weight: 200;
+}
+
+@media only screen and (max-width : 768px) {
+    .demo-1 .main-title {
+        font-size: 3em;
+    }
+}

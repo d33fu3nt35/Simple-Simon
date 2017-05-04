@@ -44,6 +44,13 @@
     font-family: 'Varela Round', sans-serif;
 }
 
+#demo-canvas {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
 body {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fed75a+64,fed75a+64,f2ae10+95 */
     background: rgb(254, 215, 90); /* Old browsers */
@@ -61,10 +68,11 @@ body {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    margin: 0px;
+    padding: 0px;
 }
 
 .headline {
-    margin: 20px;
     color: #000000;
     font-size: 32px;
     text-align: center;
@@ -74,6 +82,10 @@ body {
     letter-spacing: 1.6px;
     font-weight: 300;
     text-shadow: 0px 5px 3px rgba(0, 0, 0, 0.5);
+    width: 800px;
+    position: absolute;
+    margin: -32px;
+    margin-left: -1000px;
 }
 
 #continue {
@@ -188,4 +200,5 @@ body {
         transform: scale3d(1, 1, 1);
     }
 }
+
 

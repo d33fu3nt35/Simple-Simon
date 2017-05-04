@@ -10,6 +10,9 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/CSSPlugin.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/easing/EasePack.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenLite.min.js"></script>
+    <script src="http://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/EasePack.min.js"></script>
+    <script src="http://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/rAF.js"></script>
+    <script src="http://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/TweenLite.min.js"></script>
 
     <!-- Internal CSS -->
     <style>
@@ -25,13 +28,16 @@
             background: -webkit-radial-gradient(center, ellipse cover, rgba(254, 215, 90, 1) 64%, rgba(254, 215, 90, 1) 64%, rgba(242, 174, 16, 1) 95%); /* Chrome10-25,Safari5.1-6 */
             background: radial-gradient(ellipse at center, rgba(254, 215, 90, 1) 64%, rgba(254, 215, 90, 1) 64%, rgba(242, 174, 16, 1) 95%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fed75a', endColorstr='#f2ae10', GradientType=1); /* IE6-9 fallback on horizontal gradient */
-
             background-size: cover;
             background-repeat: no-repeat;
         }
 
         .container {
-            height: 665px;
+            width: auto;
+            height: auto;
+            margin: 0px;
+            padding: 0px;
+            overflow: hidden;
         }
 
         #backgroundBox {
@@ -40,7 +46,7 @@
             margin: 10px;
             background-color: rgba(0, 0, 0, .1);
             margin: 0 auto;
-            margin-bottom: 25px;
+            margin-bottom: 55px;
             margin-top: 25px;
             border-radius: 0px;
             -webkit-box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.60);
@@ -74,6 +80,10 @@
 
         }
 
+        .btn {
+            margin-bottom: 68px;
+        }
+
         .btn:focus {
             outline: none;
         }
@@ -89,11 +99,6 @@
 
         #pressStart, #watchSequence, #repeatSequence {
             font-size: 18px;
-        }
-
-        #InstructionsBox {
-            height: 150px;
-            width: 500px;
         }
 
         #start {
@@ -197,13 +202,146 @@
             transition: 0.1s ease;
         }
 
+        .StartButton:hover {
+            animation: StartButton;
+            -webkit-animation-name: StartButton;
+            animation-name: StartButton;
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+        }
+
+        @-webkit-keyframes StartButton {
+            0% {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+            30% {
+                -webkit-transform: scale3d(1.25, 0.75, 1);
+                transform: scale3d(1.25, 0.75, 1);
+            }
+            40% {
+                -webkit-transform: scale3d(0.75, 1.25, 1);
+                transform: scale3d(0.75, 1.25, 1);
+            }
+            50% {
+                -webkit-transform: scale3d(1.15, 0.85, 1);
+                transform: scale3d(1.15, 0.85, 1);
+            }
+            65% {
+                -webkit-transform: scale3d(.95, 1.05, 1);
+                transform: scale3d(.95, 1.05, 1);
+            }
+            75% {
+                -webkit-transform: scale3d(1.05, .95, 1);
+                transform: scale3d(1.05, .95, 1);
+            }
+            100% {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+        }
+
+        @keyframes StartButton {
+            0% {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+            30% {
+                -webkit-transform: scale3d(1.25, 0.75, 1);
+                transform: scale3d(1.25, 0.75, 1);
+            }
+            40% {
+                -webkit-transform: scale3d(0.75, 1.25, 1);
+                transform: scale3d(0.75, 1.25, 1);
+            }
+            50% {
+                -webkit-transform: scale3d(1.15, 0.85, 1);
+                transform: scale3d(1.15, 0.85, 1);
+            }
+            65% {
+                -webkit-transform: scale3d(.95, 1.05, 1);
+                transform: scale3d(.95, 1.05, 1);
+            }
+            75% {
+                -webkit-transform: scale3d(1.05, .95, 1);
+                transform: scale3d(1.05, .95, 1);
+            }
+            100% {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+        }
+
+        @media screen and (max-width: 760px) {
+            .container {
+                width: 100%;
+                text-align: center
+            }
+
+            #backgroundBox {
+                width: 100%;
+                height: 377px;
+                max-width: 760px;
+                font-size: small;
+                margin: 0px;
+            }
+
+            .box {
+                width: 100%;
+                height: 25%;
+                max-width: 760px;
+                font-size: small;
+                margin: 0px;
+            }
+
+            #SimonHeader {
+                width: 110%;
+                max-width: 760px;
+                font-size: 0%;
+                margin-left: -18px;
+                text-align: center;
+                letter-spacing: 0px;
+
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            .container {
+                width: 100%;
+                text-align: center;
+            }
+
+
+            #backgroundBox {
+                width: 100%;
+                max-width: 400px;
+                font-size: small;
+                margin: 0px;
+            }
+
+            .box {
+                width: 100%;
+                max-width: 400px;
+                font-size: small;
+                margin: 0px;
+            }
+
+            #SimonHeader {
+                width: 110%;
+                max-width: 600px;
+                font-size: 0%;
+                margin-left: -18px;
+                text-align: center;
+                letter-spacing: 0px;
+            }
+        }
+
     </style>
 
 </head>
 <body>
 
 <div class="container">
-
     <div id="SimonHeader">
         <h2 id="S" class="HeaderPiece">S</h2>
         <h2 id="I" class="HeaderPiece">I</h2>
@@ -226,17 +364,19 @@
         <div class="box" id="topRight"></div>
         <div class="box" id="bottomLeft"></div>
         <div class="box" id="bottomRight"></div>
+        <br>
+        <br>
     </div>
 
-    <h1>Level: </h1>
+    <div id='level'><h1>LEVEL: </h1></div>
+
     <div id="pressStart">Press Start!</div>
 
     <div id="watchSequence">Watch Simon's Pattern!</div>
 
     <div id="repeatSequence">Repeat Simon's Pattern!</div>
 
-    <button id="start" class="btn btn-default">Start!</button>
-
+    <button id="start" class="btn btn-default StartButton">Start!</button>
 </div>
 
 <!-- Jquery -->
@@ -337,7 +477,7 @@
     // Tell user game is over and resets playerPressCount and sequence array
     function gameOver() {
         $('#pressStart').show();
-        $('#pressStart').html('<i>Game Over!</i>' + '<br>You reached level: ' + sequence.length + '<br>Press start to play again!');
+        $('#pressStart').html('Game Over!' + '<br>You reached level: ' + sequence.length + '<br>Press start to play again!');
         $('#repeatSequence').hide();
         $('#watchSequence').hide();
         playerPressCount = 0;
@@ -369,11 +509,12 @@
 
     function countLevel() {
         setTimeout(function () {
-            $('h1').html('Level: ' + sequence.length);
+            $('h1').html('LEVEL: ' + sequence.length);
         }, 400);
     }
 
 </script>
+<!--<script src="js/backgroundanimated.js"></script>-->
 
 </body>
 </html>
