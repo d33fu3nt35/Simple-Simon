@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html >
 <head>
+  <meta charset="UTF-8">
+  <title>Shattering Text Animation</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 
-    <meta charset="UTF-8">
-    <title>Simple Simon | SPLASH</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/shatterstyle.css">
-    <script src="http://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/EasePack.min.js"></script>
-    <script src="http://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/rAF.js"></script>
-    <script src="http://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/TweenLite.min.js"></script>
+  
+      <link rel="stylesheet" href="css/shatterstyle.css">
 
+  
 </head>
 
 <body>
-
-<figure>
-    <svg x="0px" y="0px" viewBox="0 0 883 105.2" xml:space="preserve" overflow="visible">
+  <figure>
+<svg x="0px" y="0px" viewBox="0 0 883 105.2" xml:space="preserve" overflow="visible">
 <g>
 	<path d="M51.035,55.285l17.688-0.947c-0.279-9.804-3.197-17.643-8.754-23.517c-0.289-0.304-0.589-0.596-0.892-0.885L46.248,43.545
 		C48.688,45.955,50.286,49.864,51.035,55.285z"/>
@@ -255,57 +254,10 @@
 </g>
 </svg>
 </figure>
-
-<canvas class="background"></canvas>
-
-<div id="continue" class="rubberBand">
-
-    <a href="simplesimon.html">
-        <span>C</span>
-        <span>O</span>
-        <span>N</span>
-        <span>T</span>
-        <span>I</span>
-        <span>N</span>
-        <span>U</span>
-        <span>E</span>
-        <span>.</span>
-        <span>.</span>
-    </a>
-
-</div>
-
-
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-<script src="https://npmcdn.com/particlesjs@2.0.2/dist/particles.min.js"></script>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js'></script>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js'></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src="js/index.js"></script>
-<script src="js/shattertext.js"></script>
 
-<!-- Particle JS OPTIONS -->
-
-<script>
-
-    window.onload = function () {
-        Particles.init({
-            selector: '.background',
-            color: '#000000',
-            connectParticles: true,
-
-            responsive: [
-                {
-                    breakpoint: 630,
-                    options: {
-                        color: '#000000',
-                        connectParticles: true
-                    }
-                }
-            ]
-        });
-    };
-
-</script>
+    <script src="js/shattertext.js"></script>
 
 </body>
 </html>

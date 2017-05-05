@@ -151,18 +151,18 @@
         }
 
         #Pause {
-            background-image: url(images/audioicon.png);
-            background-repeat: no-repeat;
-            background-size: 200%;
-            background-position: 100% 0;
-            height: 64px;
-            width: 60px;
-            cursor: pointer;
-            display: block;
-            position: relative;
-            top: 150px;
-            left: 200px;
-            display: block;
+            background: transparent;
+            border: 0px;
+            font-size: 35px;
+            transition: 1s;
+        }
+
+        #Pause:hover {
+            background: transparent;
+            border: 0px;
+            font-size: 35px;
+            color: black;
+            transition: 1s;
         }
 
         ol, h2 {
@@ -537,7 +537,7 @@
 
     <div id="start" class="StartButton"><a href="#" class="btn btn-sm animated-button victoria-one">Start Game!</a></div>
 
-    <button id="Pause"></button>
+    <button id="Pause"><span id="soundicon" class="glyphicon glyphicon-volume-up"></span></button>
 
 </div>
 
@@ -573,6 +573,8 @@
         } else{
             Soundtrack.pause();
         }
+        $('#soundicon').toggleClass('glyphicon-volume-up');
+        $('#soundicon').toggleClass('glyphicon-volume-off');
     });
 
     // listen for start button then call SimonsTurn()

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <title>Simple Simon | SPLASH</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="http://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/EasePack.min.js"></script>
+    <script src="http://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/rAF.js"></script>
+    <script src="http://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/TweenLite.min.js"></script>
+
+</head>
+
+<body>
+
+<!--<div id="large-header" class="large-header">-->
+<!--<canvas id="demo-canvas"></canvas>-->
+<!--</div>-->
+
+<div class="type-js headline">
+    <h1 class="text-js">SIMPLE SIMON.. :)</h1>
+</div>
+
+<canvas class="background"></canvas>
+
+<div id="continue" class="rubberBand">
+
+    <a href="simplesimon.html">
+        <span>C</span>
+        <span>O</span>
+        <span>N</span>
+        <span>T</span>
+        <span>I</span>
+        <span>N</span>
+        <span>U</span>
+        <span>E</span>
+        <span>.</span>
+        <span>.</span>
+    </a>
+
+</div>
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src="https://npmcdn.com/particlesjs@2.0.2/dist/particles.min.js"></script>
+<script src="js/index.js"></script>
+<script src="js/backgroundanimated.js"></script>
+
+<!-- Particle JS OPTIONS -->
+
+<script>
+
+    window.onload = function () {
+        Particles.init({
+            selector: '.background',
+            color: '#000000',
+            connectParticles: true,
+
+            responsive: [
+                {
+                    breakpoint: 630,
+                    options: {
+                        color: '#000000',
+                        connectParticles: true
+                    }
+                }
+            ]
+        });
+    };
+
+</script>
+
+</body>
+</html>
