@@ -1,38 +1,35 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400");
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
 
-.text-js {
+::selection {
+    background: white;
+}
+
+::-moz-selection {
+    background: white;
+}
+
+.text-js{
     opacity: 0;
 }
-
-.cursor {
-    display: block;
-    position: absolute;
-    height: 100%;
-    top: 0;
-    right: -5px;
-    width: 2px;
-    /* Change colour of Cursor Here */
-    background-color: #000000;
-    z-index: 1;
-    -webkit-animation: flash 0.4s none infinite alternate;
-    animation: flash 0.4s none infinite alternate;
-}
-
-@-webkit-keyframes flash {
-    0% {
+/*.cursor{*/
+    /*display: block;*/
+    /*position: absolute;*/
+    /*height: 100%;*/
+    /*top: 0;*/
+    /*right: initial;*/
+    /*left: 0;*/
+    /*width: 2px;*/
+    /*!* Change colour of Cursor Here *!*/
+    /*background-color: #000000;*/
+    /*z-index: 1;*/
+    /*animation: flash 0.5s none infinite alternate;*/
+/*}*/
+@keyframes flash{
+    0%{
         opacity: 1;
     }
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes flash {
-    0% {
-        opacity: 1;
-    }
-    100% {
+    100%{
         opacity: 0;
     }
 }
@@ -46,18 +43,38 @@
 
 #demo-canvas {
     width: 100%;
-    height: 100%;
+    height: 60vw;
     overflow: hidden;
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.background {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
     z-index: -1;
 }
 
 body {
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fed75a+64,fed75a+64,f2ae10+95 */
-    background: rgb(254, 215, 90); /* Old browsers */
-    background: -moz-radial-gradient(center, ellipse cover, rgba(254, 215, 90, 1) 64%, rgba(254, 215, 90, 1) 64%, rgba(242, 174, 16, 1) 95%); /* FF3.6-15 */
-    background: -webkit-radial-gradient(center, ellipse cover, rgba(254, 215, 90, 1) 64%, rgba(254, 215, 90, 1) 64%, rgba(242, 174, 16, 1) 95%); /* Chrome10-25,Safari5.1-6 */
-    background: radial-gradient(ellipse at center, rgba(254, 215, 90, 1) 64%, rgba(254, 215, 90, 1) 64%, rgba(242, 174, 16, 1) 95%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fed75a', endColorstr='#f2ae10', GradientType=1); /* IE6-9 fallback on horizontal gradient */
+    /*!* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fed75a+64,fed75a+64,f2ae10+95 *!*/
+    /*background: rgb(254, 215, 90); !* Old browsers *!*/
+    /*background: -moz-radial-gradient(center, ellipse cover, rgba(254, 215, 90, 1) 64%, rgba(254, 215, 90, 1) 64%, rgba(242, 174, 16, 1) 95%); !* FF3.6-15 *!*/
+    /*background: -webkit-radial-gradient(center, ellipse cover, rgba(254, 215, 90, 1) 64%, rgba(254, 215, 90, 1) 64%, rgba(242, 174, 16, 1) 95%); !* Chrome10-25,Safari5.1-6 *!*/
+    /*background: radial-gradient(ellipse at center, rgba(254, 215, 90, 1) 64%, rgba(254, 215, 90, 1) 64%, rgba(242, 174, 16, 1) 95%); !* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ *!*/
+    /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fed75a', endColorstr='#f2ae10', GradientType=1); !* IE6-9 fallback on horizontal gradient *!*/
+    background: linear-gradient(14deg, #1350ff, #15ff54);
+    background-size: 1000% 1000%;
+
+    -webkit-animation: body 15s ease infinite;
+    -moz-animation: body 15s ease infinite;
+    animation: body 15s ease infinite;
+
     height: 100vh;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -82,10 +99,9 @@ body {
     letter-spacing: 1.6px;
     font-weight: 300;
     text-shadow: 0px 5px 3px rgba(0, 0, 0, 0.5);
-    width: 800px;
-    position: absolute;
-    margin: -32px;
-    margin-left: -1000px;
+    width: 100vw;
+    text-align: center;
+    margin: 0;
 }
 
 #continue {
@@ -170,6 +186,7 @@ body {
         transform: scale3d(1, 1, 1);
     }
 }
+
 @keyframes rubberBand {
     0% {
         -webkit-transform: scale3d(1, 1, 1);
@@ -198,6 +215,66 @@ body {
     100% {
         -webkit-transform: scale3d(1, 1, 1);
         transform: scale3d(1, 1, 1);
+    }
+}
+
+@-webkit-keyframes body {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@-moz-keyframes body {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@keyframes body {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@media screen and (max-width: 630px) {
+    #demo-canvas {
+        width: 100%;
+        height: 170vw;
+        text-align: center
+    }
+
+    .headline h1 {
+        width: 100%;
+        height: 25%;
+        max-width: 630px;
+        font-size: 130%;
+        margin: 0px;
+    }
+
+    #continue a {
+        width: 100%;
+        height: 25%;
+        max-width: 630px;
+        font-size: 95%;
+        margin: 0px;
     }
 }
 

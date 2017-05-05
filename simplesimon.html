@@ -19,17 +19,47 @@
 
         @import url('https://fonts.googleapis.com/css?family=Varela+Round');
 
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: 'Varela Round', sans-serif;
             text-align: center;
-            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fed75a+64,fed75a+64,f2ae10+95 */
-            background: rgb(254, 215, 90); /* Old browsers */
-            background: -moz-radial-gradient(center, ellipse cover, rgba(254, 215, 90, 1) 64%, rgba(254, 215, 90, 1) 64%, rgba(242, 174, 16, 1) 95%); /* FF3.6-15 */
-            background: -webkit-radial-gradient(center, ellipse cover, rgba(254, 215, 90, 1) 64%, rgba(254, 215, 90, 1) 64%, rgba(242, 174, 16, 1) 95%); /* Chrome10-25,Safari5.1-6 */
-            background: radial-gradient(ellipse at center, rgba(254, 215, 90, 1) 64%, rgba(254, 215, 90, 1) 64%, rgba(242, 174, 16, 1) 95%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fed75a', endColorstr='#f2ae10', GradientType=1); /* IE6-9 fallback on horizontal gradient */
-            background-size: cover;
-            background-repeat: no-repeat;
+            background: linear-gradient(14deg, #1350ff, #15ff54);
+            background-size: 1000% 1000%;
+
+            -webkit-animation: body 15s ease infinite;
+            -moz-animation: body 15s ease infinite;
+            animation: body 15s ease infinite;
+            color: rgb(255, 255, 255);
+        }
+
+        @-webkit-keyframes body {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+        @-moz-keyframes body {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+        @keyframes body {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+
+        ::selection {
+            background: white;
+        }
+
+        ::-moz-selection {
+            background: white;
         }
 
         .container {
@@ -38,6 +68,14 @@
             margin: 0px;
             padding: 0px;
             overflow: hidden;
+        }
+
+        .background {
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+            z-index: -1;
         }
 
         #backgroundBox {
@@ -60,7 +98,7 @@
             height: 317px;
             margin: 0px;
             border-radius: 0px;
-            opacity: .5;
+            opacity: .8;
         }
 
         #topLeft {
@@ -116,6 +154,7 @@
             margin-top: 26px;
             font-family: 'Varela Round', sans-serif;
             letter-spacing: 1.6px;
+            color: white;
         }
 
         .HeaderPiece {
@@ -272,7 +311,7 @@
             }
         }
 
-        @media screen and (max-width: 760px) {
+        @media screen and (max-width: 840px) {
             .container {
                 width: 100%;
                 text-align: center
@@ -281,7 +320,7 @@
             #backgroundBox {
                 width: 100%;
                 height: 377px;
-                max-width: 760px;
+                max-width: 840px;
                 font-size: small;
                 margin: 0px;
             }
@@ -289,18 +328,18 @@
             .box {
                 width: 100%;
                 height: 25%;
-                max-width: 760px;
+                max-width: 845px;
                 font-size: small;
                 margin: 0px;
             }
 
             #SimonHeader {
                 width: 110%;
-                max-width: 760px;
+                max-width: 840px;
                 font-size: 0%;
                 margin-left: -18px;
                 text-align: center;
-                letter-spacing: 0px;
+                letter-spacing: 1px;
 
             }
         }
@@ -332,7 +371,7 @@
                 font-size: 0%;
                 margin-left: -18px;
                 text-align: center;
-                letter-spacing: 0px;
+                letter-spacing: 1px;
             }
         }
 
@@ -340,6 +379,8 @@
 
 </head>
 <body>
+
+<canvas class="background"></canvas>
 
 <div class="container">
     <div id="SimonHeader">
@@ -386,6 +427,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
         integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
         crossorigin="anonymous"></script>
+<!-- Particle JS -->
+<script src="https://npmcdn.com/particlesjs@2.0.2/dist/particles.min.js"></script>
 
 <!-- Internal JS -->
 <script>
@@ -396,9 +439,15 @@
     $('#watchSequence').hide();
     var playerPressCount = 0;
     var sequence = [];
+    var buttonaudio = new Audio('audio/clickchime.wav');
+    var powerupaudio = new Audio('audio/powerup.wav');
+    var coinsound = new Audio('audio/coinsound.wav');
+    var gameover = new Audio('audio/gameover.wav');
 
     // listen for start button then call SimonsTurn()
     $('#start').click(function () {
+        powerupaudio.play();
+        powerupaudio.playbackRate = 1;
         playerPressCount = 0;
         sequence.length = 0;
         watchSequence();
@@ -432,6 +481,8 @@
         } else if (sequence[i] == 'bottomRight') {
             animateBox('#bottomRight');
         }
+        coinsound.play();
+        powerupaudio.playbackRate = 1;
         ;
     }
 
@@ -455,11 +506,10 @@
         ;
     };
 
-    // listen for user click on box, compare to corresponding sequence aray element
-    // if correct before end of sequens add 1 to player count
-    // if corect at end of sequense call simonsTurn()
-    // if incorect call gameOver()
+
     $('.box').click(function () {
+        buttonaudio.play();
+        buttonaudio.playbackRate = 1.5;
         animateBox('#' + $(this).attr('id'));
         if (sequence[playerPressCount] == $(this).attr('id')) {
             playerPressCount++;
@@ -476,6 +526,8 @@
 
     // Tell user game is over and resets playerPressCount and sequence array
     function gameOver() {
+        gameover.play();
+        gameover.playbackRate = 1;
         $('#pressStart').show();
         $('#pressStart').html('Game Over!' + '<br>You reached level: ' + sequence.length + '<br>Press start to play again!');
         $('#repeatSequence').hide();
@@ -512,6 +564,26 @@
             $('h1').html('LEVEL: ' + sequence.length);
         }, 400);
     }
+
+    window.onload = function () {
+        Particles.init({
+            selector: '.background',
+            color: '#000000',
+            connectParticles: true,
+            maxParticles: 150,
+
+            responsive: [
+                {
+                    breakpoint: 840,
+                    options: {
+                        color: '#000000',
+                        connectParticles: true,
+                        maxParticles: 100
+                    }
+                }
+            ]
+        });
+    };
 
 </script>
 <!--<script src="js/backgroundanimated.js"></script>-->
