@@ -39,19 +39,39 @@
         }
 
         @-webkit-keyframes body {
-            0%{background-position:0% 50%}
-            50%{background-position:100% 50%}
-            100%{background-position:0% 50%}
+            0% {
+                background-position: 0% 50%
+            }
+            50% {
+                background-position: 100% 50%
+            }
+            100% {
+                background-position: 0% 50%
+            }
         }
+
         @-moz-keyframes body {
-            0%{background-position:0% 50%}
-            50%{background-position:100% 50%}
-            100%{background-position:0% 50%}
+            0% {
+                background-position: 0% 50%
+            }
+            50% {
+                background-position: 100% 50%
+            }
+            100% {
+                background-position: 0% 50%
+            }
         }
+
         @keyframes body {
-            0%{background-position:0% 50%}
-            50%{background-position:100% 50%}
-            100%{background-position:0% 50%}
+            0% {
+                background-position: 0% 50%
+            }
+            50% {
+                background-position: 100% 50%
+            }
+            100% {
+                background-position: 0% 50%
+            }
         }
 
         ::selection {
@@ -140,13 +160,11 @@
         }
 
         #start {
-            background-color: #f9fffb;
+            text-align: center;
             transition: 0.8s ease;
         }
 
         #start:hover {
-            background-color: #959b97;
-            color: white;
             transition: 0.8s ease;
         }
 
@@ -350,7 +368,6 @@
                 text-align: center;
             }
 
-
             #backgroundBox {
                 width: 100%;
                 max-width: 400px;
@@ -373,6 +390,90 @@
                 text-align: center;
                 letter-spacing: 1px;
             }
+        }
+
+        /* Global Button Styles */
+
+        a.animated-button:link, a.animated-button:visited {
+            position: relative;
+            display: block;
+            margin: 30px auto 0;
+            padding: 14px 15px;
+            color: #000000;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            overflow: hidden;
+            letter-spacing: .08em;
+            border-radius: 0;
+            text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+            -webkit-transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            -o-transition: all 1s ease;
+            transition: all 1s ease;
+        }
+
+        a.animated-button:link:after, a.animated-button:visited:after {
+            content: "";
+            position: absolute;
+            height: 0%;
+            left: 50%;
+            top: 50%;
+            width: 150%;
+            z-index: -1;
+            -webkit-transition: all 0.75s ease 0s;
+            -moz-transition: all 0.75s ease 0s;
+            -o-transition: all 0.75s ease 0s;
+            transition: all 0.75s ease 0s;
+        }
+
+        a.animated-button:link:hover, a.animated-button:visited:hover {
+            color: #000000;
+            text-shadow: none;
+        }
+
+        a.animated-button:link:hover:after, a.animated-button:visited:hover:after {
+            height: 450%;
+        }
+
+        a.animated-button:link, a.animated-button:visited {
+            position: relative;
+            display: block;
+            margin: 30px auto 0;
+            padding: 14px 15px;
+            color: #ffffff;
+            font-size: 14px;
+            border-radius: 0;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            overflow: hidden;
+            letter-spacing: .08em;
+            text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+            -webkit-transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            -o-transition: all 1s ease;
+            transition: all 1s ease;
+        }
+
+        /* Victoria Buttons */
+
+        a.animated-button.victoria-one {
+            border: 2px solid #ffffff;
+            margin: 25px;
+            margin-left: 35%;
+            width: 30%;
+        }
+
+        a.animated-button.victoria-one:after {
+            background: #ffffff;
+            -moz-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+            -ms-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+            -webkit-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+            transform: translateX(-50%) translateY(-50%) rotate(-25deg);
         }
 
     </style>
@@ -417,7 +518,10 @@
 
     <div id="repeatSequence">Repeat Simon's Pattern!</div>
 
-    <button id="start" class="btn btn-default StartButton">Start!</button>
+    <!--<button id="start" class="btn btn-sm StartButton animated-button victoria-one">Start!</button>-->
+
+    <div id="start" class="StartButton"><a href="#" class="btn btn-sm animated-button victoria-one">Start Game!</a></div>
+
 </div>
 
 <!-- Jquery -->
@@ -502,8 +606,7 @@
             case (number >= 0.75):
                 sequence.push('bottomRight');
                 break;
-        }
-        ;
+        };
     };
 
 
@@ -539,7 +642,7 @@
     function animateBox(boxid) {
         $(boxid).animate({opacity: 1}, 100);
         $(boxid).animate({borderWidth: 1}, 100);
-        $(boxid).animate({opacity: .5}, 100);
+        $(boxid).animate({opacity: .8}, 100);
         $(boxid).animate({borderWidth: 0}, 100);
     }
 
@@ -579,6 +682,14 @@
                         color: '#000000',
                         connectParticles: true,
                         maxParticles: 100
+                    }
+                },
+                {
+                    breakpoint: 400,
+                    options: {
+                        color: '#000000',
+                        connectParticles: true,
+                        maxParticles: 50
                     }
                 }
             ]
